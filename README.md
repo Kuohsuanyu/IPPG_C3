@@ -8,6 +8,8 @@
 4.計算心跳、評估指標                                  ------> Evaluation Metric
 
 8/30
+郭
+
 添加兩個程式NIR_IPPG_outpulseox、NIR_IPPG_outpulseox_fil
 路徑為
 "C:\Users\ag133\OneDrive\文件\GitHub\IPPG_C3\dataprocess\NIR_IPPG_outpulseox.py"
