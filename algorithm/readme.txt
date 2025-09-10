@@ -1,19 +1,49 @@
-本目錄存放 rPPG 相關經典演算法，每個 .py 檔代表一種脈搏信號萃取方法，適用於生理訊號估算與性能比較。
+本資料夾收錄了多種遠端光電容積脈搏波（rPPG）訊號萃取的演算法實作，涵蓋經典方法與近期主流技術。  
+這些演算法旨在從影像資料（主要是臉部 ROI）中提取微弱的脈搏訊號，進一步用來估算心率或其他生理參數。
 
-[主要檔案簡介]
-- GREEN.py      : 以綠光通道為基礎的 rPPG 信號萃取。
-- ICA_POH.py    : Poh 等提出之獨立成分分析（ICA）處理方法。
-- LGI.py        : 基於 Local Gradient Information 的 rPPG 方法。
-- PBV.py        : 基於 Pulse Band Variation 信號的演算法。
-- POS_WANG.py   : Wang 等提出之 POS（Plane-Orthogonal-to-Skin）模型。
-- yi chrom.py   : CHROM 演算法實作。
+---
 
-[功能說明]
-本目錄演算法可與資料前處理（dataprocess）搭配，將臉部 ROI 及通道值傳入演算法函式，萃取 rPPG 原始信號，再進行心率或其他生理訊號分析。
+檔案與演算法簡介：
 
-[使用方式]
-1. 在主程式(import)調用：
-   from algorithm.GREEN import green_method
-   rppg_signal = green_method(rgb_channels)
+1. GREEN.py  
+ 使用綠光頻道的方法，基於綠光對血氧飽和度變化的敏感性，常作為基準基礎方法。
 
-2. 可依需求批次測試不同演算法，呼叫performance評估模組計算誤差指標。
+2. ICA_POH.py  
+ 基於獨立成分分析（Independent Component Analysis, ICA）的訊號分離技術，由 Poh 等人提出，透過分解RGB訊號，分離出脈搏成分。
+
+3. LGI.py  
+ Local Gradient Information 方法，利用影像局部梯度資訊增強脈搏訊號，較具抗噪性，適應多種場景。
+
+4. PBV.py  
+ Pulse Band Variation，針對脈搏信號在特定頻帶的變化進行分析與萃取，提升信號品質。
+
+5. POS_WANG.py  
+ Plane-Orthogonal-to-Skin (POS) 方法，由 Wang 等人提出，基於皮膚色彩特性與光譜反射模型，具較強的抗干擾能力。
+
+6. yi chrom.py  
+ CHROM 方法實作，以色彩頻道差分方式加強脈搏訊號提取，經典且廣泛使用。
+
+
+---
+
+使用說明：
+
+- 各 Python 檔案均定義一個或多個核心函式或類別，接收臉部 ROI 影像的 RGB 或多通道訊號序列作為輸入。
+- 輸出為經濾波、分離或特徵提取後的 rPPG 臨時信號，作為下游心率估算或其他分析模型的輸入。
+- 出於模組化與可維護性，每種演算法建議獨立成檔，方便調用與替換。
+- 演算法通常需搭配前置處理模組（如 dataprocess/ 中的臉部偵測與通道抽取）與評估模組（Evaluation Metric）使用。
+
+---
+
+開發與擴展建議：
+
+- 新增演算法請依照現有檔案格式與風格編寫，確保輸入輸出定義一致。
+- 配合主程式（main.py）做統一呼叫與批次測試。
+- 持續記錄演算法性能與參數調整，方便後續優化與發佈。
+
+---
+
+參考文獻與來源：
+
+- 文中演算法多基於近年 rPPG 領域主流論文，詳見專案文獻列表。
+- 如需深入了解某一演算法原理，請參考該檔案內注釋與注冊的參考文獻資料。
