@@ -1,0 +1,41 @@
+import os
+from pathlib import Path
+import cv2
+
+def load_images_sorted(img_dir, pattern="*.pgm", start_index=None, end_index=None):
+    """
+    讀取影像資料並依檔名排序。
+
+    參數：
+    - img_dir: 影像資料夾路徑，字串或 Path 物件。
+    - pattern: 讀取的檔案類型篩選，如 '*.pgm'。
+    - start_index, end_index: 可選擇讀取範圍索引，根據檔名排序決定。
+
+    返回：
+    - images: 讀取的影像 ndarray list
+    - filename_list: 對應檔名清單（排序好的）
+    """
+    img_dir = Path(img_dir)
+    files = sorted([p for p in img_dir.glob(pattern)])
+
+    if start_index is not None and end_index is not None:
+        files = files[start_index:end_index]
+
+    images = []
+    filename_list = []
+    for f in files:
+        img = cv2.imread(str(f), cv2.IMREAD_UNCHANGED)
+        if img is not None:
+            images.append(img)
+            filename_list.append(f.name)
+
+    print(f"Loaded {len(images)} images from {img_dir}")
+    return images, filename_list
+
+
+# 使用範例
+nir_dir = "path/to/NIR_images"
+nir_images, rgb_filenames = load_images_sorted(nir_dir, "*.pgm")
+print("NIR start file:", nir_filenames[0])
+print("NIR end file:", nir_filenames[-1])
+print("Number of nir images:", len(nir_images))
