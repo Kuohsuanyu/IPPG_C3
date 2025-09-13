@@ -1,0 +1,27 @@
+import scipy.io
+
+def load_pulseox_mat(mat_file):
+    """
+    讀取心率標註POM檔(mat格式)的時間軸和心率值。
+
+    參數：
+    - mat_file: .mat檔完整路徑
+
+    返回：
+    - pulseOxTime: numpy array，時間軸（秒）
+    - pulseOx: numpy array，心率值序列（bpm或原始訊號值）
+    """
+    mat_data = scipy.io.loadmat(mat_file)
+
+    # 以下 variable name 改成你.mat檔裡實際變數名稱
+    pulseOxTime = mat_data['pulseOxTime'].squeeze()   # 時間軸
+    pulseOx = mat_data['pulseOx'].squeeze()           # 心率值
+
+    print(f"Loaded pulseOx.mat with {len(pulseOx)} samples.")
+    print(f"Time range: {pulseOxTime[0]} to {pulseOxTime[-1]} seconds")
+
+    return pulseOxTime, pulseOx
+
+# 使用範例
+mat_file_path = "path/to/pulseOx.mat"
+pulseOxTime, pulseOx = load_pulseox_mat(mat_file_path)
