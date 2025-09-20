@@ -38,3 +38,4 @@ C:\Users\ag133\OneDrive\文件\GitHub\IPPG_C3\dataprocess>python read_RGB_NIR_OX
 
 可以看到即時影像的資料，發現NIR跟RGB資料量不同，可能需要調整，後續還需要對好心跳資料
 可以查找論文看有沒有寫或是閱讀說明文件看看
+9/20
