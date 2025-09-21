@@ -70,5 +70,5 @@ C:\Users\ag133\OneDrive\文件\GitHub\IPPG_C3\dataprocess>python read_RGB_NIR_OX
 
 
 ---
-
-本說明隨專案發展適時調整，請搭配各資料夾說明檔閱讀。如有任何問題請至 [GitHub Issues](https://github.com/Kuohsuanyu/IPPG_C3/issues) 發問。
+依:目前資料壓縮可能只能壓縮到第三個subject，其他的解壓縮可能需要換地發解壓縮或把壓縮完的資料先存在別的電腦裡面!!!
+   目前有做subject1的資料對齊，但需要再做調整，可能需要用冠廷的電腦操作看看，因為現在要調查偵率是在哪時候是一致的，目前遇到的問題是有更改參數但還是不對齊的狀態，因電腦性能關係沒辦法很準確地去檢驗到哪一偵的NIR和RGB是相同的
