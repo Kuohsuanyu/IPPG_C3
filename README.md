@@ -5,6 +5,8 @@
    遇到的問題是，有三個子資料的影像是不對的--->subject1_driving_still_975  影片看起來不太一樣
 subject1_driving_small_motion_940、subject1_driving_small_motion_975不同步
 
+still_975完全不一樣rgb有抓癢的動作，但nir沒有，small_motion_940一開始臉的角度就不一樣，small_motion_975則是nir已經在行駛的狀態而rgb須過一兩秒才開始行駛
+
                                             
 ---
 9/21
