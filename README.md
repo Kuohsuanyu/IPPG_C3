@@ -1,8 +1,8 @@
 ---
 9/28
-依:目前subjet1大部分的資料有對齊了，使用read_align_NIR_RGB.py這個檔案來執行，在城市裡改自己想要測試的subjet檔路徑即可
-   目前遇到的問題是，有三個子資料的影像是不對的，subject1_driving_still_975  影片看起來不太一樣
-                                            subject1_driving_small_motion_940、subject1_driving_small_motion_975不同步
+依:目前subjet1大部分的資料有對齊了，使用read_align_NIR_RGB.py這個檔案來執行，在程式裡改自己想要測試的subjet檔路徑即可
+
+   遇到的問題是，有三個子資料的影像是不對的，subject1_driving_still_975  影片看起來不太一樣、subject1_driving_small_motion_940、subject1_driving_small_motion_975不同步
                                             
 ---
 9/21
